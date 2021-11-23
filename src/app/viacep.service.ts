@@ -7,20 +7,25 @@ import { Address } from './address';
   providedIn: 'root'
 })
 export class ViacepService {
-  private url = 'https://viacep.com.br/ws/';
+  private urlViacep = 'https://viacep.com.br/ws/';
   private urlHeroku = 'https://mighty-ravine-58415.herokuapp.com/api/addresses/';
+  private urlLocal = '../assets/cep-901101170.json';
 
   constructor(private http : HttpClient) { 
     
   }
 
-  //getAddress(cep: string) {
-  //  return this.http.get<Address>(`${this.url}${cep}/json/`);
- //}
-  //getAddress(cep: string) {
-  //  return this.http.get<Address>(`${this.urlHeroku}${cep}/`);
-  //}
+  getAddressFromViacep(cep: string) {
+    return this.http.get<Address>(`${this.url}${cep}/json/`);
+  }
+  getAddressFromHeroku(cep: string) {
+    return this.http.get<Address>(`${this.urlHeroku}${cep}/`);
+  }
+  getAddressFromLocal(cep: string) {
+    return this.http.get<Address>(this.urlLocal);
+  }  
   getAddress(cep: string) {
-    return this.http.get<Address>('../assets/cep-901101170.json');
- }  
+    return getAddressFromLocal(cep);
+  }  
+
 }
