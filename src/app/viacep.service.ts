@@ -26,6 +26,8 @@ export class ViacepService {
   }  
   getAddress(cep: string) {
     return this.getAddressFromLocal(cep);
+    //return this.getAddressFromViacep(cep);
+    //return this.getAddressFromHeroku(cep);
   }  
 
 }
