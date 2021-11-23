@@ -9,7 +9,7 @@ import { Address } from './address';
 export class ViacepService {
   private urlViacep = 'https://viacep.com.br/ws/';
   private urlHeroku = 'https://mighty-ravine-58415.herokuapp.com/api/addresses/';
-  private urlLocal = '../assets/cep-901101170.json';
+  private urlLocal = '../assets/cep-90110170.json';
 
   constructor(private http : HttpClient) { 
     
@@ -25,7 +25,7 @@ export class ViacepService {
     return this.http.get<Address>(this.urlLocal);
   }  
   getAddress(cep: string) {
-    return getAddressFromLocal(cep);
+    return this.getAddressFromLocal(cep);
   }  
 
 }
