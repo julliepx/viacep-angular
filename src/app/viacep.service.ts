@@ -16,7 +16,7 @@ export class ViacepService {
   }
 
   getAddressFromViacep(cep: string) {
-    return this.http.get<Address>(`${this.url}${cep}/json/`);
+    return this.http.get<Address>(`${this.urlViacep}${cep}/json/`);
   }
   getAddressFromHeroku(cep: string) {
     return this.http.get<Address>(`${this.urlHeroku}${cep}/`);
